@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres ser mi novia?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  #proposal-box ,  #result-box{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff69b4;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+  }
+  #result-box{
+    display: none;
+  }
+  .title{
+    font-size: 24px;
+    color: rgb(55, 55, 182);
+  }
+  .cursive {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  #result-image {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+
+  }
+    #subtitle {
+    font-size: 20px;
+    color: #ff69b4;
+    margin-top: 10px;
+  }
+
+</style>
+</head>
+<body>
+    <audio id="bg-music" src="tu-musica.mp3" loop></audio>
+
+<div id="proposal-box">
+  <h2 class="title">Srta. Adeli Marcy🌊💖...</h2>
+  <img src="./assets/adeli-initial.jpg" width="150px" height="auto" alt="Adeli Image">
+
+  <p class="cursive">Desde hace varios días he querido hacerte una pregunta...</p>
+  <p>Te has vuelto mi persona favorita, a la que elegiría pasar todo mi tiempo libre aun asi no estuviesemos haciendo nada. 
+    Me encanta lo cariñosa que eres conmigo y todos los detalles que tienes por mi. Literal, eres uno de los principales motivos 
+    por los que me haces ser mejor cada día. Te quiero mucho y sin dar mas vueltas queria decirte...
+  </p>
+  <h3>¿Quisieras ser mi señorita enamorada en las buenas y en las malas♥?</h3>
+  <button id="yesBtn">¡Sí, acepto♥!</button>
+  <button id="noBtn">No, toy chikita😅</button>
+</div>
+<div id="result-box">
+  <h1 class="title">Sabía que dirias que sí💖!</h1>
+  <p>Me haces el chico mas feliz del mundo. Estoy tan emocionado por el futuro que nos depara juntos y estoy seguro que podremos afrontarlo todo🥰</p>
+  <img id="result-image" src="./assets/together.jpeg" width="150px" height="auto" alt="We Together">
+  <p id="subtitle" class="cursive">Te quiero mucho mi Ademar.</p>
+
+</div>
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const proposalBox = document.getElementById('proposal-box');
+  const resultBox = document.getElementById('result-box');
+  
+  yesBtn.addEventListener('click', () => {
+    proposalBox.style.display = 'none';
+    resultBox.style.display = 'block';
+  });
+  
+  noBtn.addEventListener('click', () => {
+    const maxX = window.innerWidth - noBtn.clientWidth;
+    const maxY = window.innerHeight - noBtn.clientHeight;
+    
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    noBtn.style.left = `${Math.min(maxX, Math.max(0, randomX))}px`;
+    noBtn.style.top = `${Math.min(maxY, Math.max(0, randomY))}px`;
+  });
+</script>
+</body>
+</html>
